@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Acerca de{% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/about-bg.jpg' %}{% endblock %}
+
+{% block headers %}
+<h1>Acerca de</h1>
+<span class="subheading">Biografía</span>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid avatar" src="{% static 'core/img/fotoCV.jpg' %}" alt="">
+    </div>
+    <div class="col-lg-7 col-md-8">
+        <h2 class="section-heading">Percy Bellido</h2>   
+        <p>Soy un apasionado de la ingeniería química y la programación, combino el análisis científico con el desarrollo de software para crear soluciones innovadoras.</p>
+        <br/>
+        <h5 class="section-heading-lower">¿Por qué este Proyecto?</h5>
+        <p>Este proyecto nace de mi interés por la ciencia y la tecnología, me gusta compartir el conocimiento, de manera especial el científico, además para mostrar parte de mi portafolio de proyectos, que pienso ir incrementando</p>
+        <p>Si quieres saber más, colaborar conmigo o simplemente charlar, contáctame a través de la Página de Contacto o en mis redes sociales.</p>
+    </div>
+</div>
+{% endblock %}

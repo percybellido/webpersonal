@@ -1,0 +1,82 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/contact1.jpg' %}{% endblock %}
+
+{% block headers %}
+<h1>Contacto</h1>
+<span class="subheading">Asesoría</span>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-5">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <p>¿Tienes dudas? !Hablemos!</p>
+        <p>Contáctanos y estaremos complácidos de ayudarte</p>
+        <br>
+        <p><b>Teléfono:</b> 51 935905532</p>
+        <p><b>Honorarios:</b> 30 s./h (precio base)</p>
+    </div>
+</div>
+
+<div class="about-heading-content">
+    <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+            <div class="bg-faded bg-secondary rounded p-5">
+                <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Envíanos tus dudas</span>
+                </h2>
+
+                {% if request.GET.ok %}
+                <div id="success-message" class="alert bg-success text-white" role="alert">
+                    Mensaje enviado exitósamente.
+                </div>
+                {% endif %}
+
+                <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Nombre *</label>
+                    <div class="input-group">
+                        {{form.name}}
+                    </div>
+                    {{form.name.errors}}
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <div class="input-group">
+                        {{form.email}}
+                    </div>
+                    {{form.email.errors}}
+                    <!--<ul class="errorlist">
+                        <li>El email no es correcto.</li>
+                    </ul>-->
+                </div>
+                <div class="form-group">
+                    <label>Mensaje *</label>
+                    <div class="input-group">
+                        {{form.content}}
+                    </div>
+                    {{form.content.errors}}
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary rounded-3 btn-block py-2" value="Enviar">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 3000); // 3000 milisegundos = 3 segundos
+        }
+    });
+</script>
+{% endblock %}
