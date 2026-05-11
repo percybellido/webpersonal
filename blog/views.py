@@ -4,6 +4,7 @@ from .models import Post, Category
 # Create your views here.
 def blog(request):
     posts=Post.objects.all()
+    paginate_by= 3
     return render(request, "blog/blog.html", {'posts':posts})
 
 def category(request, category_id):
